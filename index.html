@@ -1,13 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/icons.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <title>Shopping Cart</title>
 </head>
 <body>
-    <script src="js/main.js" type="text/javascript"></script>
+
+    <!-- MAIN CONTENT -->
+    
+    <section class="container">
+        <div class="cards-container" id="cards-container">
+            
+        </div>
+        <aside class="cart-container">
+            <section class="cart-content">
+                <header class="cart-header">
+                    <h1 class="cart-title">Game Cart</h1> 
+                    <figure class="cart-figure">
+                        <span class="material-icons cart-icon">
+                            shopping_cart
+                        </span>
+                        <div class="cart-counter">
+                            <span class="span-counter" id="counter">0</span>
+                        </div>
+                    </figure>
+                </header>
+                <section class="cart-body" id="cart-body">
+                    
+                </section>
+                <footer class="cart-footer">
+                    <p class="prise-total">Total: <span id="acum-prise"></span></p>
+                </footer>
+            </section>
+        </aside>
+    </section>
+
+    <!-- CART GAMES ITEM TEMPLATE -->
+
+    <template id="game-template">
+        <section class="game-item">
+            <div class="game-content">
+                <span id="game-title"></span>
+                x
+                <span id="game-amount"></span>
+                -
+                <span id="game-prise"></span>
+            </div>
+            <div class="game-actions">
+                <span class="material-icons" id="game-add">add</span>
+                <span class="material-icons" id="game-remove">remove</span>
+                <span class="material-icons" id="game-clear">clear</span>
+            </div>
+        </section>
+    </template>
+
+    <!-- CARD ITEM TEMPLATE -->
+
+    <template id="card-template">
+         <article class="card-item">
+            <figure class="card-picture">
+                <img src="" alt="" class="card-img">
+            </figure>
+            <div class="card-content">
+                <h2 class="card-title"></h2>
+                <p class="card-prise"></p>
+                <button class="card-btn">
+                    <span class="material-icons">
+                        add
+                    </span>
+                </button>
+            </div>
+        </article>
+    </template>
+    <script src="js/main.js" type="module"></script>
 </body>
 </html>
