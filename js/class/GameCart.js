@@ -28,7 +28,7 @@ export class GameCart extends Products {
         products.map(item => {
             this.cardTemplate.querySelector('.card-img').setAttribute('src', item.image);
             this.cardTemplate.querySelector('.card-title').textContent = item.title;
-            this.cardTemplate.querySelector('.card-prise').textContent = `$${item.prise}`;
+            this.cardTemplate.querySelector('.card-price').textContent = `$${item.price}`;
             this.cardTemplate.querySelector('.card-btn').dataset.id = item.id;
             const cardClone = this.cardTemplate.cloneNode(true);
             this.fragment.appendChild(cardClone);
@@ -54,7 +54,7 @@ export class GameCart extends Products {
             this.cartGames.push({
                 id: ID,
                 title: parentNode.querySelector('.card-title').textContent,
-                prise: this.cleanPrise(parentNode.querySelector('.card-prise').textContent),
+                price: this.cleanprice(parentNode.querySelector('.card-price').textContent),
                 amount: 1 
             });
         } else {
@@ -64,7 +64,7 @@ export class GameCart extends Products {
         this.printCartGames();
     }
 
-    cleanPrise(text) {
+    cleanprice(text) {
         if(text === '') return 0;
         return Number(text.replaceAll('$', ''));
     }
@@ -74,7 +74,7 @@ export class GameCart extends Products {
         this.cartGames.forEach(item => {
             this.gameTemplate.getElementById('game-title').textContent = item.title;
             this.gameTemplate.getElementById('game-amount').textContent = item.amount;
-            this.gameTemplate.getElementById('game-prise').textContent = `$${item.amount * item.prise}`;
+            this.gameTemplate.getElementById('game-price').textContent = `$${item.amount * item.price}`;
             this.gameTemplate.getElementById('game-add').dataset.id = item.id;
             this.gameTemplate.getElementById('game-remove').dataset.id = item.id;
             this.gameTemplate.getElementById('game-clear').dataset.id = item.id;
@@ -86,13 +86,13 @@ export class GameCart extends Products {
         this.gameContainer.appendChild(this.fragment);
         this.addGameItemListener();
         this.printCartCounter();
-        this.printTotalGamesPrise();
+        this.printTotalGamesprice();
     }
 
-    printTotalGamesPrise() {
-        const gamesPrises =  [...this.gameContainer.querySelectorAll('#game-prise')];
-        const acumPrises = gamesPrises.reduce((acum, item) => acum + this.cleanPrise(item.textContent), 0);
-        this.gameContainer.nextElementSibling.querySelector('#acum-prise').textContent = `$${acumPrises}`;
+    printTotalGamesprice() {
+        const gamesprices =  [...this.gameContainer.querySelectorAll('#game-price')];
+        const acumprices = gamesprices.reduce((acum, item) => acum + this.cleanprice(item.textContent), 0);
+        this.gameContainer.nextElementSibling.querySelector('#acum-price').textContent = `$${acumprices}`;
     }
 
     addGameItemListener() {
