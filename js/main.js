@@ -1,4 +1,4 @@
-import { GameCart } from './class/GameCart.js';
+import { GameCart } from './GameCart.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {

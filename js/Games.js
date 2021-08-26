@@ -1,6 +1,6 @@
-export class Products {
+export class Games {
 
-    async getProducts() {
+    async getGames() {
         try {
             const response = await fetch('api/api.json');
             const data = await response.json();
