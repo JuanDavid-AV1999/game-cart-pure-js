@@ -17,7 +17,7 @@ export class GameCart extends Games{
         this.#gameContainer = document.getElementById('cart-body');
         this.#cardTemplate = document.getElementById('card-template').content;
         this.#gameTemplate= document.getElementById('game-template').content;
-        this.#counter = document.getElementById('#counter');
+        this.#counter = document.getElementById('counter');
         this.#cartGames = [];
         this.#fragment = new DocumentFragment();
         this.#data = this.getGames();
@@ -101,7 +101,7 @@ export class GameCart extends Games{
     #printTotalGamesprice() {
         const gamesprices =  [...this.#gameContainer.querySelectorAll('#game-price')];
         const acumprices = gamesprices.reduce((acum, item) => acum + this.#cleanPrice(item.textContent), 0);
-        this.#gameContainer.nextElementSibling.querySelector('#acum-price').textContent = `$${acumprices}`;
+        document.querySelector('.price-total').textContent = `total: $${acumprices}`;
     }
 
     #addGameItemListener() {
@@ -148,5 +148,9 @@ export class GameCart extends Games{
 
     #deleteGameToCart(ID) {
         this.#cartGames = this.#cartGames.filter(item => item.id !== ID);
+    }
+
+    #totalGamesAmount() {
+
     }
 }
