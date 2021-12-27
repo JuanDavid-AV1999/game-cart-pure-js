@@ -29,7 +29,7 @@ body {
     min-height: inherit;
     padding: 5px 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 2px;
 }
 
@@ -221,6 +221,17 @@ body {
     display: flex;
     justify-content: flex-end;
     font-size: 1.3em;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        width: 100%;
+        min-width: 500px;
+    }
+
+    .cart-container {
+        width: 410px;
+    }
 }
 
 
