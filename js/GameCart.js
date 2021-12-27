@@ -26,7 +26,7 @@ export class GameCart extends Games{
     #printCartCounter() { 
         if(this.#cartGames.length > 0) {
             this.#counter.parentNode.style.display = 'block';
-            this.#counter.textContent = this.#cartGames.length;
+            this.#counter.textContent = this.#cartGames.reduce((acum, item) => acum += item.amount, 0);
         } else {
             this.#counter.parentNode.style.display = 'none';
         }
@@ -148,9 +148,5 @@ export class GameCart extends Games{
 
     #deleteGameToCart(ID) {
         this.#cartGames = this.#cartGames.filter(item => item.id !== ID);
-    }
-
-    #totalGamesAmount() {
-
     }
 }
